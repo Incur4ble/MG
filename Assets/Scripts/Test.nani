@@ -1,0 +1,33 @@
+@back background
+@bgm test
+
+@char moon.1
+moon: 你好，这是《戏生》的VN测试部分
+@char star.1 look:left
+star: test on!
+@hideprinter
+@choice "继续" goto:Test.continue
+@choice "结束" goto:Test.end
+@stop
+
+#continue
+@spawn Rain wait:false
+@showPrinter
+@char moon.1
+moon: 下雨中
+@hideAll time:2
+@back background2
+@spawn Snow wait:false
+@despawn Rain wait:false
+@char star.1 time:3
+变换了场景，并开始下雪
+@spawn ShakeCamera
+镜头晃动
+
+@choice "重复" goto:.continue
+@choice "结束" goto:.end
+@stop
+
+#end
+测试结束
+@title
