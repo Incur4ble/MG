@@ -12,9 +12,6 @@ public class Note_W : MonoBehaviour
     public float maxScale = 2f;
     public float minScale = 1f;
 
-    public bool canBePressed;
-    public bool isHit;
-
 
     public KeyCode keyToPress;
 
@@ -30,6 +27,7 @@ public class Note_W : MonoBehaviour
     void Update()
     {
         HitNote();
+        //Debug.Log(transform.localScale.x);
     }
 
 
@@ -37,43 +35,53 @@ public class Note_W : MonoBehaviour
 
     public void HitNote()
     {
+        //Debug.Log(Input.GetKeyDown(keyToPress));
         if (Input.GetKeyDown(keyToPress))
         {
             //提前敲打
             if (transform.localScale.x > 1.75)
             {
-                canBePressed = false;
-                isHit = false;
+
                 gameObject.SetActive(false);
                 Debug.Log("W_Miss");
+                //Debug.Log(transform.localScale);
                 //miss计数未写
             }
-            //xiecuole
             else if (transform.localScale.x < 1.1)
             {
-                canBePressed = false;
-                isHit = false;
+
                 gameObject.SetActive(false);
                 Debug.Log("W_Miss");
+                //Debug.Log(transform.localScale);
                 //miss计数未写
             }
             else
             {
-                canBePressed = true;
-                isHit = true;
+
                 gameObject.SetActive(false);
                 Debug.Log("W_Hit");
+                //Debug.Log(transform.localScale);
                 //hit计数未写
             }
         }
-        if (transform.localScale.x == 1.1)
+        else
         {
-            gameObject.SetActive(false);
+            //Debug.Log(transform.localScale.x < 1.1);
+            if (transform.localScale.x < 1.003)
+            {
+                gameObject.SetActive(false);
+
+                Debug.Log("W_Miss!!!!!!!");
+                //Debug.Log(transform.localScale);
+            }
         }
     }
 
     private void ChangeNote(KoreographyEvent koreographyEvent, int sampleTime, int sampleDelta, DeltaSlice deltaSlice)
     {
+        gameObject.SetActive(true);
+        //Debug.Log(gameObject.active);
+
         //判定是否有curve负荷
         if (koreographyEvent.HasCurvePayload())
         {

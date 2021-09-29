@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: Enote
   mEventList:
-  - mStartSample: 44100
+  - mStartSample: 66150
     mEndSample: 88200
   _SerializedPayloadTypes:
   - SonicBloom.Koreo.CurvePayload

@@ -245,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180414730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.48, y: 6.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -292,7 +292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389402889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1103246692}
@@ -363,9 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventID: Wnote
   maxScale: 2
-  minScale: 1.5
-  canBePressed: 0
-  isHit: 0
+  minScale: 1
   keyToPress: 119
 --- !u!1 &519420028
 GameObject:
@@ -548,8 +546,6 @@ MonoBehaviour:
   eventID: Enote
   maxScale: 2
   minScale: 1
-  canBePressed: 0
-  isHit: 0
   keyToPress: 101
 --- !u!1 &1103246691
 GameObject:
@@ -726,7 +722,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventID: Qnote
   maxScale: 2
-  minScale: 1.5
-  canBePressed: 0
-  isHit: 0
+  minScale: 1
   keyToPress: 113

@@ -12,9 +12,6 @@ public class Note_Q : MonoBehaviour
     public float maxScale = 2f;
     public float minScale = 1f;
 
-    public bool canBePressed;
-    public bool isHit;
-
 
     public KeyCode keyToPress;
 
@@ -37,50 +34,59 @@ public class Note_Q : MonoBehaviour
 
     public void HitNote()
     {
+        //Debug.Log(Input.GetKeyDown(keyToPress));
         if (Input.GetKeyDown(keyToPress))
         {
             //提前敲打
-            if (transform.localScale.x > 1.85)
+            if (transform.localScale.x > 1.75)
             {
-                canBePressed = false;
-                isHit = false;
+
                 gameObject.SetActive(false);
                 Debug.Log("Q_Miss");
+                //Debug.Log(transform.localScale);
                 //miss计数未写
             }
-            //xiecuole
-            else if (transform.localScale.x < 1.6)
+            else if (transform.localScale.x < 1.1)
             {
-                canBePressed = false;
-                isHit = false;
+
                 gameObject.SetActive(false);
                 Debug.Log("Q_Miss");
+                //Debug.Log(transform.localScale);
                 //miss计数未写
             }
             else
             {
-                canBePressed = true;
-                isHit = true;
+
                 gameObject.SetActive(false);
                 Debug.Log("Q_Hit");
+                //Debug.Log(transform.localScale);
                 //hit计数未写
             }
         }
-        if(transform.localScale.x == 1.5)
+        else
         {
-            gameObject.SetActive(false);
+            //Debug.Log(transform.localScale.x < 1.1);
+            if (transform.localScale.x < 1.0029 )
+            {
+                gameObject.SetActive(false);
+
+                Debug.Log("Q_Miss");
+                //Debug.Log(transform.localScale);
+            }
         }
     }
 
     private void ChangeNote(KoreographyEvent koreographyEvent, int sampleTime, int sampleDelta, DeltaSlice deltaSlice)
     {
+        gameObject.SetActive(true);
+        //Debug.Log(gameObject.active);
+
         //判定是否有curve负荷
         if (koreographyEvent.HasCurvePayload())
         {
-            gameObject.SetActive(true);
+            
             //获取负荷值
             float curveValue = koreographyEvent.GetValueOfCurveAtTime(sampleTime);
-
             //由符合值修改Scale属性
             transform.localScale = Vector3.one * Mathf.Lerp(minScale, maxScale, curveValue);      //lerp:插值
         }
